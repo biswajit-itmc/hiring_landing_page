@@ -1,0 +1,287 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ---------------------------------------------------------------------------
+   Landing (Hirslams) theme — inline tokens (utilities use values directly)
+   ------------------------------------------------------------------------ */
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-brand: var(--brand);
+  --color-brand-foreground: var(--brand-foreground);
+  --color-brand-dark: var(--brand-dark);
+  --color-surface-muted: var(--surface-muted);
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-jakarta), "Inter", sans-serif;
+}
+
+/* ---------------------------------------------------------------------------
+   Shared color tokens that must be overridable per scope (non-inline so
+   utilities resolve via var()). Landing defaults point at the :root oklch vars.
+   ------------------------------------------------------------------------ */
+@theme {
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-surface: var(--surface);
+  --color-background: var(--background);
+}
+
+/* ---------------------------------------------------------------------------
+   Lumina Talent (dashboard) design system — Material 3 mint/green palette.
+   Unique tokens registered globally; overlapping names overridden in .lumina.
+   ------------------------------------------------------------------------ */
+@theme {
+  --color-on-primary: #ffffff;
+  --color-on-primary-fixed: #002116;
+  --color-on-primary-fixed-variant: #2a4e3f;
+  --color-on-primary-container: #7ba190;
+  --color-primary-fixed: #c3ebd8;
+  --color-primary-fixed-dim: #a8cfbd;
+  --color-primary-container: #12372a;
+
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-fixed: #06210d;
+  --color-on-secondary-fixed-variant: #324d36;
+  --color-on-secondary-container: #4d6950;
+  --color-secondary-fixed: #cbebcc;
+  --color-secondary-fixed-dim: #afcfb0;
+  --color-secondary-container: #c8e8c9;
+
+  --color-on-tertiary: #ffffff;
+  --color-on-tertiary-fixed: #002113;
+  --color-on-tertiary-fixed-variant: #005236;
+  --color-on-tertiary-container: #5ba883;
+  --color-tertiary: #002114;
+  --color-tertiary-fixed: #a4f3ca;
+  --color-tertiary-fixed-dim: #89d6af;
+  --color-tertiary-container: #003925;
+
+  --color-surface-variant: #dfe4db;
+  --color-surface-bright: #f6fbf2;
+  --color-surface-dim: #d6dcd3;
+  --color-surface-tint: #416656;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f0f5ec;
+  --color-surface-container: #eaefe7;
+  --color-surface-container-high: #e5eae1;
+  --color-surface-container-highest: #dfe4db;
+
+  --color-on-surface: #181d18;
+  --color-on-surface-variant: #414844;
+  --color-on-background: #181d18;
+  --color-inverse-surface: #2c322c;
+  --color-inverse-on-surface: #edf2e9;
+  --color-inverse-primary: #a8cfbd;
+
+  --color-outline: #717974;
+  --color-outline-variant: #c1c8c3;
+
+  --color-error: #ba1a1a;
+  --color-on-error: #ffffff;
+  --color-error-container: #ffdad6;
+  --color-on-error-container: #93000a;
+
+  /* Dashboard typography (Inter exclusively) */
+  --text-display-lg: 48px;
+  --text-display-lg--line-height: 56px;
+  --text-display-lg--letter-spacing: -0.02em;
+  --text-display-lg--font-weight: 700;
+
+  --text-headline-lg: 32px;
+  --text-headline-lg--line-height: 40px;
+  --text-headline-lg--letter-spacing: -0.02em;
+  --text-headline-lg--font-weight: 600;
+
+  --text-headline-md: 24px;
+  --text-headline-md--line-height: 32px;
+  --text-headline-md--letter-spacing: -0.01em;
+  --text-headline-md--font-weight: 600;
+
+  --text-headline-lg-mobile: 24px;
+  --text-headline-lg-mobile--line-height: 32px;
+  --text-headline-lg-mobile--letter-spacing: -0.01em;
+  --text-headline-lg-mobile--font-weight: 600;
+
+  --text-body-lg: 18px;
+  --text-body-lg--line-height: 28px;
+  --text-body-lg--letter-spacing: -0.01em;
+  --text-body-lg--font-weight: 400;
+
+  --text-body-md: 16px;
+  --text-body-md--line-height: 24px;
+  --text-body-md--letter-spacing: 0em;
+  --text-body-md--font-weight: 400;
+
+  --text-label-md: 14px;
+  --text-label-md--line-height: 20px;
+  --text-label-md--letter-spacing: 0.01em;
+  --text-label-md--font-weight: 500;
+
+  --text-label-sm: 12px;
+  --text-label-sm--line-height: 16px;
+  --text-label-sm--letter-spacing: 0.02em;
+  --text-label-sm--font-weight: 600;
+}
+
+/* ---------------------------------------------------------------------------
+   Landing :root variables
+   ------------------------------------------------------------------------ */
+:root {
+  --radius: 0.75rem;
+  --background: oklch(0.985 0.005 95);
+  --foreground: oklch(0.18 0.02 160);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.18 0.02 160);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.18 0.02 160);
+  --primary: oklch(0.18 0.02 160);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.96 0.01 140);
+  --secondary-foreground: oklch(0.18 0.02 160);
+  --muted: oklch(0.96 0.005 120);
+  --muted-foreground: oklch(0.5 0.015 150);
+  --accent: oklch(0.94 0.04 140);
+  --accent-foreground: oklch(0.18 0.02 160);
+  --destructive: oklch(0.6 0.22 27);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: oklch(0.9 0.01 140);
+  --input: oklch(0.9 0.01 140);
+  --ring: oklch(0.7 0.15 150);
+
+  --brand: oklch(0.72 0.18 150);
+  --brand-foreground: oklch(0.18 0.02 160);
+  --brand-dark: oklch(0.28 0.06 165);
+  --surface: oklch(0.985 0.005 95);
+  --surface-muted: oklch(0.95 0.01 130);
+}
+
+.dark {
+  --background: oklch(0.16 0.02 160);
+  --foreground: oklch(0.985 0 0);
+}
+
+/* ---------------------------------------------------------------------------
+   Lumina dashboard scope — override shared color vars inside .lumina
+   ------------------------------------------------------------------------ */
+.lumina {
+  --color-primary: #002116;
+  --color-secondary: #49654c;
+  --color-surface: #f6fbf2;
+  --color-background: #f6fbf2;
+}
+
+/* ---------------------------------------------------------------------------
+   Dashboard helper classes
+   ------------------------------------------------------------------------ */
+.glass-panel,
+.glass-card {
+  background-color: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 33, 22, 0.05);
+}
+.glass-card {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -1px rgba(0, 0, 0, 0.01);
+}
+
+.ai-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+.ai-shimmer::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(to right, transparent, rgba(168, 207, 189, 0.25), transparent);
+  transform: skewX(-20deg);
+  animation: lumina-shimmer 4s infinite;
+  pointer-events: none;
+}
+@keyframes lumina-shimmer {
+  100% {
+    left: 200%;
+  }
+}
+
+.progress-ring__circle {
+  transition: stroke-dashoffset 0.8s ease-in-out;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+}
+
+.focus-glow:focus-within {
+  border-color: #a8cfbd;
+  box-shadow: 0 0 0 4px rgba(168, 207, 189, 0.2);
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.safe-area-pb,
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* Smooth scroll for in-page anchors */
+html { scroll-behavior: smooth; }
+
+/* Custom scrollbar for the 3D SaaS vibe */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #34d39955, #0fa86b88);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+::-webkit-scrollbar-thumb:hover { background: #2ee6a688; background-clip: content-box; }
+
+/* ---------------------------------------------------------------------------
+   Base layer
+   --------------------------------------------------------------------------- */
+@layer base {
+  html {
+    overflow-x: hidden;
+  }
+  * {
+    border-color: var(--color-border);
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+}
